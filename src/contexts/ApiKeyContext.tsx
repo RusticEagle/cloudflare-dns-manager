@@ -4,6 +4,8 @@ interface ApiKeyContextType {
   apiKey: string
   setApiKey: (key: string) => void
   clearApiKey: () => void
+  isAuthenticated: boolean
+  logout: () => void
 }
 
 const ApiKeyContext = createContext<ApiKeyContextType | undefined>(undefined)
@@ -22,17 +24,20 @@ interface ApiKeyProviderProps {
 
 export const ApiKeyProvider: React.FC<ApiKeyProviderProps> = ({ children }) => {
   const [apiKey, setApiKeyState] = useState<string>('')
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
 
   useEffect(() => {
     // Load API key from localStorage on mount
     const stored = localStorage.getItem('cf_api_key')
     if (stored) {
       setApiKeyState(stored)
+      setIsAuthenticated(true)
     }
   }, [])
 
   const setApiKey = (key: string) => {
     setApiKeyState(key)
+    setIsAuthenticated(!!key)
     if (key) {
       localStorage.setItem('cf_api_key', key)
     } else {
@@ -42,11 +47,16 @@ export const ApiKeyProvider: React.FC<ApiKeyProviderProps> = ({ children }) => {
 
   const clearApiKey = () => {
     setApiKeyState('')
+    setIsAuthenticated(false)
     localStorage.removeItem('cf_api_key')
   }
 
+  const logout = () => {
+    clearApiKey()
+  }
+
   return (
-    <ApiKeyContext.Provider value={{ apiKey, setApiKey, clearApiKey }}>
+    <ApiKeyContext.Provider value={{ apiKey, setApiKey, clearApiKey, isAuthenticated, logout }}>
       {children}
     </ApiKeyContext.Provider>
   )

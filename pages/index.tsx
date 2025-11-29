@@ -141,12 +141,6 @@ const HomePage: React.FC = () => {
         Dashboard
       </Typography>
 
-      {!apiKey && (
-        <Alert severity="info" sx={{ mb: 3 }}>
-          Configure your Cloudflare API token in Settings to see real data.
-        </Alert>
-      )}
-
       {/* Summary Cards */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
         <Grid item xs={12} sm={6} md={3}>
