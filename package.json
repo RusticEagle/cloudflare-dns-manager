@@ -1,0 +1,32 @@
+{
+  "name": "cloudflare-dns-manager",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.5",
+    "@mui/material": "^7.3.5",
+    "@mui/styles": "^6.4.8",
+    "@mui/x-charts": "^8.20.0",
+    "axios": "^1.13.2",
+    "next": "^16.0.5",
+    "npm-check-updates": "^19.1.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "9.39.1",
+    "eslint-config-next": "^16.0.5",
+    "typescript": "5.9.3"
+  }
+}
