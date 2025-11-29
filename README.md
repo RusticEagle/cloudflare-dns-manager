@@ -2,6 +2,8 @@
 
 This project is a Next.js, TypeScript, and Material UI prototype for bulk DNS management across multiple domains hosted in Cloudflare.
 
+This project was built with GitHub CoPilot
+
 Features implemented in this prototype:
 - Dashboard, Domains list, and Settings pages
 - Server-side API routes for listing zones and DNS records
